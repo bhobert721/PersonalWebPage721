@@ -1,19 +1,11 @@
-function getQuote() {
-    fetch("https://api.quotable.io/random")
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("quoteDisplay").innerHTML =
-            data.content + " — " + data.author;
-    })
-    .catch(error => {
-        document.getElementById("quoteDisplay").innerHTML =
-            "Unable to load quote.";
-    });
+function getOceanImage() {
+  const image = document.getElementById("oceanImage");
+
+  // Random number prevents caching
+  const randomNum = new Date().getTime();
+
+  image.src = "https://source.unsplash.com/400x300/?ocean,beach&" + randomNum;
 }
 
-// Form validation
-function validateForm() {
-    document.getElementById("formMessage").innerHTML =
-        "Thank you! Your message has been received.";
-    return false;
-}
+// Load one automatically when page opens
+getOceanImage();
