@@ -1,11 +1,12 @@
 window.onload = function () {
   const image = document.getElementById("oceanImage");
 
-  fetch("https://picsum.photos/400/300")
-    .then(response => {
-      image.src = response.url;
+  fetch("https://api.seapics.com/v1/random?query=ocean")
+    .then(response => response.json())
+    .then(data => {
+      image.src = data.image;
     })
     .catch(error => {
-      console.log("Error:", error);
+      console.log("Error loading image:", error);
     });
 };
