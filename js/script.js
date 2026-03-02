@@ -1,7 +1,11 @@
 window.onload = function () {
   const image = document.getElementById("oceanImage");
 
-  const randomNum = new Date().getTime();
-
-  image.src = "https://source.unsplash.com/400x300/?ocean,beach&" + randomNum;
+  fetch("https://picsum.photos/400/300")
+    .then(response => {
+      image.src = response.url;
+    })
+    .catch(error => {
+      console.log("Error:", error);
+    });
 };
