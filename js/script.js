@@ -1,12 +1,11 @@
 window.onload = function () {
+  alert("JS is working");
+
   const image = document.getElementById("oceanImage");
 
-  fetch("https://api.seapics.com/v1/random?query=ocean")
-    .then(response => response.json())
-    .then(data => {
-      image.src = data.image;
-    })
-    .catch(error => {
-      console.log("Error loading image:", error);
-    });
+  if (image) {
+    image.src = "https://picsum.photos/400/300";
+  } else {
+    alert("Image not found");
+  }
 };
